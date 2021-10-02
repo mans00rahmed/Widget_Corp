@@ -18,7 +18,6 @@ if ($conn->affected_rows == 1) {
     echo "<p>". $conn->error . "</p>";
     echo "<a href = \"content.php\">Return to Main Page </a>";
 
-
 }
 }else{
     redirect_to("content.php");

@@ -16,12 +16,13 @@ function confirm_query($result_set)
     }
 }
 
-function get_all_subjects()
-{
+function get_all_subjects($public=true){
     global $conn;
-    $sql = "SELECT * 
-    FROM subjects 
-    ORDER BY position ASC";
+    $sql = "SELECT * FROM subjects ";
+    if($public) {
+        $sql .= "WHERE visible = 1 ";
+        }
+    $sql .= "ORDER BY position ASC";
     $subject_set = $conn->query($sql);
     confirm_query($subject_set);
     return $subject_set;
@@ -123,3 +124,28 @@ function navigation($sel_subject, $sel_page)
     $output .=  "</ul>";
     return $output;
 }
+
+function public_navigation($sel_subject, $sel_page, $public = false) {
+    $output = "<ul class=\"subjects\">";
+    $subject_set = get_all_subjects($public);
+    while ($subject = mysqli_fetch_array($subject_set)) {
+        $output .= "<li";
+        if ($subject["id"] == $sel_subject['id']) { $output .= " class=\"selected\""; }
+        $output .= "><a href=\"index.php?subj=" . urlencode($subject["id"]) . 
+            "\">{$subject["menu_name"]}</a></li>";
+        if ($subject["id"] == $sel_subject['id']) {	
+            $page_set = get_pages_for_subject($subject["id"], $public);
+            $output .= "<ul class=\"pages\">";
+            while ($page = mysqli_fetch_array($page_set)) {
+                $output .= "<li";
+                if ($page["id"] == $sel_page['id']) { $output .= " class=\"selected\""; }
+                $output .= "><a href=\"index.php?page=" . urlencode($page["id"]) .
+                    "\">{$page["menu_name"]}</a></li>";
+            }
+            $output .= "</ul>";
+        }
+    }
+    $output .= "</ul>";
+    return $output;
+}
+?>
