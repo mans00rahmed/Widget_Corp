@@ -3,7 +3,7 @@ This repository contains source files for a fictional company called widget-corp
 It has been written in PHP and has been integrated with a MySQL database using the mysqli database API.
 The following descrition gives you all the details about the CMS.
 ________________________________________
-<img src="Capture.png">
+<img src="https://github.com/mans00rahmed/Widget_Corp/blob/master/Capture.PNG">
 
 _There are 2 basic work areas in the CMS - the Public Area and the Admin Area._
 
