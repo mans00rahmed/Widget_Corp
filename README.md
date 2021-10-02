@@ -1,6 +1,9 @@
 # CMS-Widget-Corp
 This repository contains source files for a fictional company called widget-corp. There are 2 main users - the admin and public.
-It has been written in PHP and has been integrated with a MySQL database using the mysqli database API.
+It has been written in PHP and has been integrated with a MySQL database using the mysqli database API.<br>
+<a href="https://github.com/mans00rahmed/Widget_Corp/blob/master/Scema_widget_corp.pdf"><b>Schema For Database</b></a>
+<br>
+Schema for the Database</b>
 The following descrition gives you all the details about the CMS.
 ________________________________________
 <img src="https://github.com/mans00rahmed/Widget_Corp/blob/master/Capture.PNG">
